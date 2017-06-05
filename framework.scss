@@ -1,0 +1,450 @@
+/* KIM'S FRAMEWORK 6.5.17 */
+
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 980px;
+
+/* GRID SYSTEM */
+.twd_row {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- */
+  display: -ms-flexbox; /* IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.twd_one, .twd_two, .twd_three, .twd_four, .twd_five, .twd_six, .twd_seven, .twd_eight, .twd_twoThirds1, .twd_twoThirds2, .twd_oneQuarter1, .twd_oneQuarter2 {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0; /* to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
+  img {
+	  height: auto;
+	  max-width: 100%;
+	  align-self: center;
+	  display: block;
+  }
+  @-moz-document url-prefix() {
+	  img {
+	  /* the following is to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
+		max-width: 100%;
+	  }
+  }
+}
+
+.twd_twoThirds2 {
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+.twd_oneQuarter2 {
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+}
+
+.twd_flexItems {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- */
+  display: -ms-flexbox; /* IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.twd_blockItems {
+  display: block;
+  width: 100%;
+}
+
+/* change directions */
+.twd_row.twd_direction_column {
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+}
+
+.twd_row.twd_direction_row {
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+}
+
+/* ALIGNMENTS */
+.twd_text_left {
+  text-align: left;
+}
+
+.twd_text_right {
+  text-align: right;
+}
+
+.twd_text_center {
+  text-align: center;
+}
+
+.twd_text_justify {
+  text-align: justify;
+}
+
+.twd_horizontallyCentered {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.twd_verticallyCentered {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.twd_top {
+  align-items: flex-start;
+  align-self: flex-start;
+}
+
+.twd_bottom {
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+.twd_centered {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.twd_left {
+  -webkit-box-pack: flex-start;
+  -moz-box-pack: flex-start;
+  -ms-flex-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.twd_right {
+  -webkit-box-pack: flex-end;
+  -moz-box-pack: flex-end;
+  -ms-flex-pack: flex-end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.twd_fullScreen {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+/* floats */
+.twd_float_left {
+  float: left;
+}
+
+.twd_float_right {
+  float: right;
+}
+
+.twd_clearfloat {
+  width: 100%;
+  clear: both;
+}
+
+/* RESPONSIVE 16x9 VIDEOS */
+.twd_video16x9 {
+  position: absolute;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.twd_video16x9 > div {
+  width: 100%;
+  height: 100%;
+}
+
+.twd_videoContainer {
+  position: relative;
+  height: 0;
+  padding: 56.25% 0 0 0;
+}
+
+.twd_videoContainer img {
+  width: auto/9; /* IE 8 & below */
+}
+
+/* TABLET & MEDIUM SCREENS */
+@media screen and (max-width: $breakpoint-tablet) {
+  /* change row direction to column on tablet and mobile */
+  .twd_row.twd_changeColumnDirection, .twd_changeTabletDirection {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+  }
+  .twd_centeredOnTablet {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* MOBILE & SMALL SCREENS */
+@media all and (max-width: $breakpoint-mobile) {
+  /* change row direction to column */
+  .twd_row {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+  }
+  .twd_centeredOnMobile {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    text-align: center;
+  }
+  .twd_float_noneOnMobile {
+    float: none;
+  }
+}
+
+/* paddings and margins */
+.twd_padding0 {
+  padding: 0;
+}
+
+.twd_padding1 {
+  padding: 0 1% 0 1%;
+}
+
+.twd_padding2 {
+  padding: 0 2% 0 2%;
+}
+
+.twd_padding3 {
+  padding: 0 3% 0 3%;
+}
+
+.twd_padding4 {
+  padding: 0 4% 0 4%;
+}
+
+.twd_padding5 {
+  padding: 0 5% 0 5%;
+}
+
+.twd_padding6 {
+  padding: 0 6% 0 6%;
+}
+
+.twd_padding7 {
+  padding: 0 7% 0 7%;
+}
+
+.twd_padding8 {
+  padding: 0 8% 0 8%;
+}
+
+.twd_padding8 {
+  padding: 0 9% 0 9%;
+}
+
+.twd_padding10 {
+  padding: 0 10% 0 10%;
+}
+
+.twd_margin0 {
+  margin: 0;
+}
+
+.twd_margin5 {
+  margin-bottom: 5px;
+}
+
+.twd_margin10 {
+  margin-bottom: 10px;
+}
+
+.twd_margin15 {
+  margin-bottom: 15px;
+}
+
+.twd_margin20 {
+  margin-bottom: 20px;
+}
+
+.twd_margin25 {
+  margin-bottom: 25px;
+}
+
+.twd_margin30 {
+  margin-bottom: 30px;
+}
+
+.twd_margin35 {
+  margin-bottom: 35px;
+}
+
+.twd_margin40 {
+  margin-bottom: 40px;
+}
+
+.twd_margin45 {
+  margin-bottom: 45px;
+}
+
+.twd_margin50 {
+  margin-bottom: 50px;
+}
+
+/* HIDE & SHOW */
+.twd_show, .twd_showOnDesktop {
+  display: block;
+}
+
+.twd_hide {
+  display: none;
+}
+
+@media all and (min-width: $breakpoint-tablet+1) {
+  .twd_hideOnDesktop {
+    display: none;
+  }
+}
+
+@media all and (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
+  .twd_hideOnTablet {
+    display: none;
+  }
+}
+
+@media all and (max-width: $breakpoint-mobile) {
+  .twd_hideOnMobile {
+    display: none;
+  }
+}
+
+//***
+//custom grids
+//***
+
+.twd_row_custom {
+  flex-flow: row wrap;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.twd_4to1, .twd_3to2to1, .twd_3to1, .twd_2to1 {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0; /* to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
+  img {
+	  width: auto;
+	  height: auto;
+	  max-width: 100%;
+	  max-height: 100%;
+	  align-self: center;
+  }
+  @-moz-document url-prefix() {
+  img {
+    /* the following is to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
+    max-width: 100%;
+    width: 100%;
+  }
+  }
+}
+
+.twd_3to2to1, .twd_3to1 {
+  flex-basis: 33%;
+  align-items: flex-end;
+}
+
+.twd_4to1 {
+  flex-basis: 25%;
+  align-items: flex-end;
+
+}
+
+@media all and (max-width: $breakpoint-tablet) {
+  .twd_2to1.box img, .twd_3to1.box img, .twd_4to1.box img {
+    width: 45%;
+    float: left;
+    margin-right: 20px;
+  }
+  .twd_3to2to1 {
+    flex-basis: 49%;
+  }
+  .twd_2to1, .twd_3to1, .twd_4to1 {
+    flex-basis: 100%;
+  }
+  .twd_2to1 img, twd_3to1 img, .twd_4to1 img {
+    float: left;
+    margin-right: 30px;
+  }
+  .twd_2to1 h2, twd_3to1 h2, .twd_4to1 h2 {
+    margin: 0;
+  }
+}
+
+@media all and (max-width: $breakpoint-mobile) {
+  .twd_2to1.box img, .twd_3to1.box img, .twd_4to1.box img {
+    width: 100%;
+    float: none;
+    margin-right: 0;
+  }
+  .twd_3to2to1 {
+    flex-basis: 100%;
+  }
+}
