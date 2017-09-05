@@ -1,18 +1,38 @@
-/* KIM'S FRAMEWORK 6.5.17 */
+/* KIM'S FRAMEWORK 9.5.17 */
 
 $breakpoint-mobile: 600px;
-$breakpoint-tablet: 980px;
+$breakpoint-tablet: 1175px;
 
 /* GRID SYSTEM */
-.twd_row {
+.bs_row {
   display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box; /* OLD - Firefox 19- */
   display: -ms-flexbox; /* IE 10 */
   display: -webkit-flex; /* NEW - Chrome */
   display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  /* change directions */
+  &.bs_row.bs_direction_column {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+  }
+  &.bs_row.bs_direction_row {
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+  }
 }
 
-.twd_one, .twd_two, .twd_three, .twd_four, .twd_five, .twd_six, .twd_seven, .twd_eight, .twd_twoThirds1, .twd_twoThirds2, .twd_oneQuarter1, .twd_oneQuarter2 {
+.bs_one,
+.bs_two,
+.bs_three,
+.bs_four,
+.bs_five,
+.bs_six,
+.bs_seven,
+.bs_eight {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -24,37 +44,71 @@ $breakpoint-tablet: 980px;
   -ms-flex: 1;
   flex: 1;
   min-width: 0; /* to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
-  img {
+	img {
 	  height: auto;
 	  max-width: 100%;
 	  align-self: center;
 	  display: block;
-  }
-  @-moz-document url-prefix() {
-	  img {
-	  /* the following is to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
-		max-width: 100%;
-	  }
-  }
+	}
 }
-
-.twd_twoThirds2 {
+.bs_two {
   -webkit-box-flex: 2;
   -moz-box-flex: 2;
   -webkit-flex: 2;
   -ms-flex: 2;
   flex: 2;
 }
-
-.twd_oneQuarter2 {
+.bs_three {
   -webkit-box-flex: 3;
   -moz-box-flex: 3;
   -webkit-flex: 3;
   -ms-flex: 3;
   flex: 3;
 }
+.bs_four {
+  -webkit-box-flex: 4;
+  -moz-box-flex: 4;
+  -webkit-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
+}
+.bs_five {
+  -webkit-box-flex: 5;
+  -moz-box-flex: 5;
+  -webkit-flex: 5;
+  -ms-flex: 5;
+  flex: 5;
+}
+.bs_six {
+  -webkit-box-flex: 6;
+  -moz-box-flex: 6;
+  -webkit-flex: 6;
+  -ms-flex: 6;
+  flex: 6;
+}
+.bs_seven {
+  -webkit-box-flex: 7;
+  -moz-box-flex: 7;
+  -webkit-flex: 7;
+  -ms-flex: 7;
+  flex: 7;
+}
+.bs_eight {
+  -webkit-box-flex: 8;
+  -moz-box-flex: 8;
+  -webkit-flex: 8;
+  -ms-flex: 8;
+  flex: 8;
+}
 
-.twd_flexItems {
+/* the following is to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
+@-moz-document url-prefix() {
+  .bs_one img, .bs_two img, .bs_three img, .bs_four img, .bs_five img, .bs_six img, .bs_seven img, .bs_eight img {
+    max-width: 100%;
+  }
+}
+
+.bs_flexItems {
   display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box; /* OLD - Firefox 19- */
   display: -ms-flexbox; /* IE 10 */
@@ -62,44 +116,35 @@ $breakpoint-tablet: 980px;
   display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
-.twd_blockItems {
+.bs_blockItems {
   display: block;
   width: 100%;
 }
 
-/* change directions */
-.twd_row.twd_direction_column {
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-}
-
-.twd_row.twd_direction_row {
-  flex-direction: row;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-}
-
 /* ALIGNMENTS */
-.twd_text_left {
+.bs_text_left {
   text-align: left;
 }
 
-.twd_text_right {
+.bs_text_right {
   text-align: right;
 }
 
-.twd_text_center {
+.bs_text_center {
   text-align: center;
 }
 
-.twd_text_justify {
+.bs_text_justify {
   text-align: justify;
 }
 
-.twd_horizontallyCentered {
+.bs_fullScreen {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.bs_horizontallyCentered {
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -ms-flex-pack: center;
@@ -108,7 +153,7 @@ $breakpoint-tablet: 980px;
   text-align: center;
 }
 
-.twd_verticallyCentered {
+.bs_verticallyCentered {
   -webkit-box-align: center;
   -moz-box-align: center;
   -ms-flex-align: center;
@@ -116,17 +161,17 @@ $breakpoint-tablet: 980px;
   align-items: center;
 }
 
-.twd_top {
+.bs_top {
   align-items: flex-start;
   align-self: flex-start;
 }
 
-.twd_bottom {
+.bs_bottom {
   align-items: flex-end;
   align-self: flex-end;
 }
 
-.twd_centered {
+.bs_centered {
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -ms-flex-pack: center;
@@ -140,7 +185,7 @@ $breakpoint-tablet: 980px;
   text-align: center;
 }
 
-.twd_left {
+.bs_left {
   -webkit-box-pack: flex-start;
   -moz-box-pack: flex-start;
   -ms-flex-pack: flex-start;
@@ -149,7 +194,7 @@ $breakpoint-tablet: 980px;
   text-align: left;
 }
 
-.twd_right {
+.bs_right {
   -webkit-box-pack: flex-end;
   -moz-box-pack: flex-end;
   -ms-flex-pack: flex-end;
@@ -158,28 +203,26 @@ $breakpoint-tablet: 980px;
   text-align: right;
 }
 
-.twd_fullScreen {
-  height: 100%;
-  position: absolute;
-  width: 100%;
+.bs_marginAuto {
+	margin: auto;
 }
 
 /* floats */
-.twd_float_left {
+.bs_float_left {
   float: left;
 }
 
-.twd_float_right {
+.bs_float_right {
   float: right;
 }
 
-.twd_clearfloat {
+.bs_clearfloat {
   width: 100%;
   clear: both;
 }
 
 /* RESPONSIVE 16x9 VIDEOS */
-.twd_video16x9 {
+.bs_video16x9 {
   position: absolute;
   display: block;
   max-width: 100%;
@@ -189,33 +232,28 @@ $breakpoint-tablet: 980px;
   top: 0;
   bottom: 0;
   margin: auto;
+  & > div {	
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.twd_video16x9 > div {
-  width: 100%;
-  height: 100%;
-}
-
-.twd_videoContainer {
+.bs_videoContainer {
   position: relative;
   height: 0;
   padding: 56.25% 0 0 0;
 }
 
-.twd_videoContainer img {
-  width: auto/9; /* IE 8 & below */
-}
-
 /* TABLET & MEDIUM SCREENS */
 @media screen and (max-width: $breakpoint-tablet) {
   /* change row direction to column on tablet and mobile */
-  .twd_row.twd_changeColumnDirection, .twd_changeTabletDirection {
+  .bs_row.bs_changeColumnDirection {
     flex-direction: column;
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
     -ms-flex-direction: column;
   }
-  .twd_centeredOnTablet {
+  .bs_centeredOnTablet {
     -webkit-box-pack: center;
     -moz-box-pack: center;
     -ms-flex-pack: center;
@@ -223,18 +261,25 @@ $breakpoint-tablet: 980px;
     justify-content: center;
     text-align: center;
   }
-}
-
-/* MOBILE & SMALL SCREENS */
-@media all and (max-width: $breakpoint-mobile) {
   /* change row direction to column */
-  .twd_row {
+  .bs_changeTabletDirection {
     flex-direction: column;
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
     -ms-flex-direction: column;
   }
-  .twd_centeredOnMobile {
+}
+
+/* MOBILE & SMALL SCREENS */
+@media all and (max-width: $breakpoint-mobile) {
+  /* change row direction to column */
+  .bs_row {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+  }
+  .bs_centeredOnMobile {
     -webkit-box-pack: center;
     -moz-box-pack: center;
     -ms-flex-pack: center;
@@ -247,204 +292,216 @@ $breakpoint-tablet: 980px;
     align-items: center;
     text-align: center;
   }
-  .twd_float_noneOnMobile {
+  .bs_float_noneOnMobile {
     float: none;
   }
 }
 
 /* paddings and margins */
-.twd_padding0 {
+.bs_padding0 {
   padding: 0;
 }
 
-.twd_padding1 {
+.bs_padding1 {
   padding: 0 1% 0 1%;
 }
 
-.twd_padding2 {
+.bs_padding2 {
   padding: 0 2% 0 2%;
 }
 
-.twd_padding3 {
+.bs_padding3 {
   padding: 0 3% 0 3%;
 }
 
-.twd_padding4 {
+.bs_padding4 {
   padding: 0 4% 0 4%;
 }
 
-.twd_padding5 {
+.bs_padding5 {
   padding: 0 5% 0 5%;
 }
 
-.twd_padding6 {
+.bs_padding6 {
   padding: 0 6% 0 6%;
 }
 
-.twd_padding7 {
+.bs_padding7 {
   padding: 0 7% 0 7%;
 }
 
-.twd_padding8 {
+.bs_padding8 {
   padding: 0 8% 0 8%;
 }
 
-.twd_padding8 {
+.bs_padding8 {
   padding: 0 9% 0 9%;
 }
 
-.twd_padding10 {
+.bs_padding10 {
   padding: 0 10% 0 10%;
 }
 
-.twd_margin0 {
+.bs_margin0 {
   margin: 0;
 }
 
-.twd_margin5 {
+.bs_margin5 {
   margin-bottom: 5px;
 }
 
-.twd_margin10 {
+.bs_margin10 {
   margin-bottom: 10px;
 }
 
-.twd_margin15 {
+.bs_margin15 {
   margin-bottom: 15px;
 }
 
-.twd_margin20 {
+.bs_margin20 {
   margin-bottom: 20px;
 }
 
-.twd_margin25 {
+.bs_margin25 {
   margin-bottom: 25px;
 }
 
-.twd_margin30 {
+.bs_margin30 {
   margin-bottom: 30px;
 }
 
-.twd_margin35 {
+.bs_margin35 {
   margin-bottom: 35px;
 }
 
-.twd_margin40 {
+.bs_margin40 {
   margin-bottom: 40px;
 }
 
-.twd_margin45 {
+.bs_margin45 {
   margin-bottom: 45px;
 }
 
-.twd_margin50 {
+.bs_margin50 {
   margin-bottom: 50px;
 }
 
+.bs_margin60 {
+  margin-bottom: 60px;
+}
+
+.bs_margin70 {
+  margin-bottom: 70px;
+}
+
+.bs_margin80 {
+  margin-bottom: 80px;
+}
+
+.bs_margin90 {
+  margin-bottom: 90px;
+}
+
+.bs_margin100 {
+  margin-bottom: 100px;
+}
+
 /* HIDE & SHOW */
-.twd_show, .twd_showOnDesktop {
+.bs_show, .bs_showOnDesktop {
   display: block;
 }
 
-.twd_hide {
+.bs_hide {
   display: none;
 }
 
 @media all and (min-width: $breakpoint-tablet+1) {
-  .twd_hideOnDesktop {
+  .bs_hideOnDesktop {
     display: none;
   }
 }
 
 @media all and (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
-  .twd_hideOnTablet {
+  .bs_hideOnTablet {
     display: none;
   }
 }
 
 @media all and (max-width: $breakpoint-mobile) {
-  .twd_hideOnMobile {
+  .bs_hideOnMobile {
     display: none;
   }
 }
 
 //***
-//custom grids
+//custom grids - 
 //***
 
-.twd_row_custom {
-  flex-flow: row wrap;
-  display: flex;
-  flex-wrap: wrap;
+.bs_row_custom {
+    flex-flow: row wrap;
 }
-
-.twd_4to1, .twd_3to2to1, .twd_3to1, .twd_2to1 {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-width: 0; /* to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
-  img {
-	  width: auto;
-	  height: auto;
-	  max-width: 100%;
-	  max-height: 100%;
+.bs_3to2,
+.bs_2to2,
+.bs_4to2,
+.bs_5to2,
+.bs_6to2 {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	min-width:0; /* to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
+	img {
+	  width:auto;
+	  height:auto;
+	  max-width:100%;
+	  max-height:100%;
 	  align-self: center;
-  }
-  @-moz-document url-prefix() {
-  img {
-    /* the following is to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
-    max-width: 100%;
-    width: 100%;
-  }
-  }
+	  display: block;
+	}
+}
+/* the following is to fix FF 36 responsive images bug: http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width */
+@-moz-document url-prefix() { 
+	.bs_3to2 img, .bs_2to2 img, .bs_4to2 img {
+		max-width:100%; width:100%;
+	}
+}
+.bs_2to2 {
+	margin: 0 2% 2% 2%;
+	flex-basis: 46%!important;
+}
+.bs_3to2 {
+	flex-basis: 30%!important;
+	margin: 0 1.6% 1.6% 1.6%;
+	align-items: flex-end;
+}
+.bs_4to2 {
+	flex-basis: 23%!important;
+	margin: 0 1% 1% 1%;
+	align-items: flex-end;
+}
+.bs_5to2 {
+	flex-basis: 18%!important;
+	margin: 0 1% 1% 1%;
+	align-items: flex-end;
+}
+.bs_6to2 {
+	flex-basis: 14.6%!important;
+	margin: 0 1% 1% 1%;
+	align-items: flex-end;
 }
 
-.twd_3to2to1, .twd_3to1 {
-  flex-basis: 33%;
-  align-items: flex-end;
+@media all and (max-width: 479px) {
+.bs_3to2,
+.bs_4to2,
+.bs_5to2,
+.bs_6to2 {
+	margin: 0 2% 2% 2%;
+	flex-basis: 46%!important;
 }
-
-.twd_4to1 {
-  flex-basis: 25%;
-  align-items: flex-end;
-
-}
-
-@media all and (max-width: $breakpoint-tablet) {
-  .twd_2to1.box img, .twd_3to1.box img, .twd_4to1.box img {
-    width: 45%;
-    float: left;
-    margin-right: 20px;
-  }
-  .twd_3to2to1 {
-    flex-basis: 49%;
-  }
-  .twd_2to1, .twd_3to1, .twd_4to1 {
-    flex-basis: 100%;
-  }
-  .twd_2to1 img, twd_3to1 img, .twd_4to1 img {
-    float: left;
-    margin-right: 30px;
-  }
-  .twd_2to1 h2, twd_3to1 h2, .twd_4to1 h2 {
-    margin: 0;
-  }
-}
-
-@media all and (max-width: $breakpoint-mobile) {
-  .twd_2to1.box img, .twd_3to1.box img, .twd_4to1.box img {
-    width: 100%;
-    float: none;
-    margin-right: 0;
-  }
-  .twd_3to2to1 {
-    flex-basis: 100%;
-  }
 }
